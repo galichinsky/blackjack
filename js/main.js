@@ -4,18 +4,68 @@ const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', '
 
 // Build an 'original' deck of 'card' objects used to create shuffled decks
 const originalDeck = buildOriginalDeck();
-renderDeckInContainer(originalDeck, document.getElementById('original-deck-container'));
 
 /*----- app's state (variables) -----*/
-let shuffledDeck;
+let deck;
+let dHand;
+let pHand;
+let bankroll;
+let bet;
+let outcome;  // null -> hand in progress; 'p' -> player wins; 'd' -> dealer wins
+              // 'dbj' -> dealer blackjack; 'pbj' -> player blackjack
+              // 't' -> push for a tie
 
 /*----- cached element references -----*/
-const shuffledContainer = document.getElementById('shuffled-deck-container');
+
+const playerHandContainer = document.getElementById('player-hand-container');
+const dealerHandContainer = document.getElementById('dealer-hand-container');
+const dealBtn = document.getElementById('deal-btn');
 
 /*----- event listeners -----*/
-document.querySelector('button').addEventListener('click', renderNewShuffledDeck);
+
+dealBtn.addEventListener('click', handleDeal);
 
 /*----- functions -----*/
+init();
+
+function init() {
+  pHand = [];
+  dHand = [];
+
+  render();
+}
+
+function handleDeal() {
+  console.log(dealBtn)
+  deck = getNewShuffledDeck();
+  pHand = [deck.pop(), deck.pop()];
+  dHand = [deck.pop(), deck.pop()];
+  outcome = getDealOutcome();
+  render();
+}
+
+function getDealOutcome() {
+  return null;
+}
+
+function render() {
+  renderHandInContainer(dHand, dealerHandContainer);
+  renderHandInContainer(pHand, playerHandContainer);
+
+}
+
+
+function renderHandInContainer(hand, container) {
+  const isDealerHand = hand === dHand;
+  console.log(isDealerHand)
+  container.innerHTML = '';
+  let cardsHtml = '';
+  hand.forEach(function(card, idx) {
+    cardsHtml += `<div class="card large ${isDealerHand && idx === 0 && outcome === null ? 'back' : card.face}"></div>`;
+  });
+  container.innerHTML = cardsHtml;
+}
+
 function getNewShuffledDeck() {
   // Create a copy of the originalDeck (leave originalDeck untouched!)
   const tempDeck = [...originalDeck];
@@ -29,25 +79,6 @@ function getNewShuffledDeck() {
   return newShuffledDeck;
 }
 
-function renderNewShuffledDeck() {
-  // Create a copy of the originalDeck (leave originalDeck untouched!)
-  shuffledDeck = getNewShuffledDeck();
-  renderDeckInContainer(shuffledDeck, shuffledContainer);
-}
-
-function renderDeckInContainer(deck, container) {
-  container.innerHTML = '';
-  // Let's build the cards as a string of HTML
-  let cardsHtml = '';
-  deck.forEach(function(card) {
-    cardsHtml += `<div class="card ${card.face}"></div>`;
-  });
-  // Or, use reduce to 'reduce' the array into a single thing - in this case a string of HTML markup 
-  // const cardsHtml = deck.reduce(function(html, card) {
-  //   return html + `<div class="card ${card.face}"></div>`;
-  // }, '');
-  container.innerHTML = cardsHtml;
-}
 
 function buildOriginalDeck() {
   const deck = [];
@@ -64,5 +95,3 @@ function buildOriginalDeck() {
   });
   return deck;
 }
-
-renderNewShuffledDeck();
