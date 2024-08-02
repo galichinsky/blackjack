@@ -9,15 +9,37 @@
   <link href="css/main.css" rel="stylesheet" type="text/css" />
   <script defer src="js/main.js"></script>
 </head>
-
+<header>I'm losing braincells</header>
 <body>
-  <h3>Dealer</h3>
-  <section id="dealer-hand-container" class="card-container">
-  </section>
+  <h1>Fucking Blackjack</h1>
+  <h2>Payout <div>3:2</div></h2>
   <button id="deal-btn">Deal</button>
-  <h3>Player</h3>
-  <section id="player-hand-container" class="card-container">
-  </section>
+  <div class="parent-container">
+   <div class="gameplay-container">   
+      <div class="dealer">
+        <h3>Dealer</h3>
+        <h3 id="dealer-total">Total:</h3>
+      </div> 
+      <section id="dealer-hand-container" class="card-container"></section>
+      <div class="player">
+        <h3>Player</h3>
+        <h3 id="player-total">Total:</h3>
+      </div>
+      <section id="player-hand-container" class="card-container"></section>
+      <div class="buttons">
+        <button id="hit-btn">Hit</button>
+        <button id="stand-btn">Stand</button>
+      </div>
+    </div>
+    <div class="hud-container">
+      <div id="Bank">
+        <h3>Bankroll</h3>
+      </div>
+      <h3>I'm Broke</h3>
+      
+        
+    </div>
+  </div>
 </body>
 
 </html>

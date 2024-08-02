@@ -20,20 +20,29 @@ let outcome;  // null -> hand in progress; 'p' -> player wins; 'd' -> dealer win
 const playerHandContainer = document.getElementById('player-hand-container');
 const dealerHandContainer = document.getElementById('dealer-hand-container');
 const dealBtn = document.getElementById('deal-btn');
+const hitBtn = document.getElementById('hit-btn');
+const standBtn = document.getElementById('stand-btn');
+const dTotalEl = document.getElementById('dealer-total');
+const pTotalEl = document.getElementById('player-total');
 
 /*----- event listeners -----*/
 
 dealBtn.addEventListener('click', handleDeal);
-
+hitBtn.addEventListener('click', handleHit);
+standBtn.addEventListener('click', handleStand);
 /*----- functions -----*/
 init();
 
 function init() {
+  bankroll = 0;
+  bet = 0;
+  outcome = null;
   pHand = [];
   dHand = [];
 
   render();
 }
+
 
 function handleDeal() {
   console.log(dealBtn)
@@ -43,6 +52,22 @@ function handleDeal() {
   outcome = getDealOutcome();
   render();
 }
+
+// Handle a hit
+function handleHit(phand, container) {
+  if (outcome !== null) return;
+  console.log(hitBtn)
+  phand.push(deck.pop());
+  updateTotals();
+  
+  render();
+}
+
+handleStand(phand, container) {
+  if (outcome !== null) return;
+  while (getHand)
+  console.log(handleStand)
+};
 
 function getDealOutcome() {
   return null;
