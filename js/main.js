@@ -50,24 +50,64 @@ document.getElementById('bet-controls').addEventListener('click', handleBet);
 /*----- functions -----*/
 init();
 
+// initialize the game state
+function init() {
+    outcome = null;
+    pHand = [];
+    dHand = [];
+    pTotal = dTotal = 0;
+    bankroll = 200;
+    bet = 0;
+    render();
+}
+
+// Handle the initial deal
+function handleDeal() {
+  outcome = null;
+  deck = getNewShuffledDeck();
+  dHand = [];
+  pHand = [];
+  dHand.push(deck.pop(), deck.pop()); // Deal two cards to dealer
+  pHand.push(deck.pop(), deck.pop()); // Deal two cards to player
+  dTotal = getHandTotal(dHand);
+  pTotal = getHandTotal(pHand);
+  // check for BJ
+  if (pTotal === 21 && dTotal === 21) {
+    outcome = 'T';
+  } else if (dTotal === 21) {
+      outcome = 'DBJ';
+  } else if (pTotal === 21) {
+      outcome = 'PBJ';
+  }
+  if (outcome) settleBet();
+  render();
+}
 // Handle Stand
 function handleStand() {
   dealerPlay();
-  if (pTotal === dTotal) {
-    outcome = 'T';
-  } else if (dTotal > pTotal) {
-    outcome = 'D';
-  } else {
-    outcome = 'P';
-  }
-  settleBet();
-  render();
+    if (pTotal > 21) {
+      outcome = (dTotal > 21) ? 'T' : 'D';
+    } else if (dTotal > 21) {
+      outcome = 'P';
+    } else if (pTotal === 21) {
+      outcome = (dTotal === 21) ? 'T' : 'PBJ';
+    } else if (dTotal === 21) {
+      outcome = 'DBJ';
+    } else if (pTotal === dTotal) {
+      outcome = 'T';
+    } else if (pTotal > dTotal) {
+      outcome = 'D';
+    } else {
+      outcome = 'P';
+    }
+    settleBet();
+    render();
 }
 
-function dealerPlay() {
+function dealerPlay(cb) {
   while (dTotal < 17) {
-    pHand.push(deck.pop());
-    dTotal = getHandTotal;
+    dHand.push(deck.pop());
+    dTotal = getHandTotal(dHand);
   }
 }
 
@@ -79,39 +119,18 @@ function handleHit() {
     outcome = 'D';
     settleBet();
   }
-  //updateTotals();
   render();
 }
 
 // Handle the bet
 function handleBet(evt) {
-  const dealBtn = evt.target;
+  const btn = evt.target;
   if (btn.tagName !== 'BUTTON') return;
   const betAmt = parseInt(btn.innerText.replace('$', ''));
   bet += betAmt;
   bankroll -= betAmt;
-
   render();
  }
- 
-function handleDeal() {
-  outcome = null;
-  dHand = [];
-  deck = getNewShuffledDeck();
-  pHand = [];
-  pHand = [deck.pop(), deck.pop()];
-  dHand = [deck.pop(), deck.pop()];
-  // check for BJ
-  if (pTotal === 21 && dTotal === 21) {
-    outcome = 'T';
-    } else if (dTotal === 21) {
-      outcome = 'DBJ';
-    } else if (pTotal === 21) {
-      outcome = 'PBJ';
-    }
-  if (outcome) settleBet();
-    render();
-}
 
 function settleBet() {
   if (outcome === 'PBJ') {
@@ -122,101 +141,82 @@ function settleBet() {
   bet = 0;
 }
 
-  // Get the hand totals
+// Get the hand totals
 function getHandTotal(hand) {
-    let total = 0;
-    let aces = 0;
-    hand.forEach(function(card) {
-      total += card.value;
-      if (card.value === 11) aces++;
-    });
-    while (total > 21 && aces) {
-      total -= 10;
-      aces--;
-    }
-    return total;
+  let total = 0;
+  let aces = 0;
+  hand.forEach(function(card) {
+    total += card.value;
+    if (card.value === 11) aces++;
+  });
+  while (total > 21 && aces) {
+    total -= 10;
+    aces--;
   }
-function init() {
-    outcome = null;
-    pHand = [];
-    dHand = [];
-    pTotal = dTotal = 0;
-    bankroll = 1000;
-    bet = 0;
-    render();
+  return total;
 }
+
   // Handle a stand
 function handleStand() {
-  if (outcome !== null) return;
-  while (getHandValue(dhand) < 17) {
-    dhand.push(deck.pop());
-  }
-  outcome = getFinalOutcome()
+  dealerPlay(function() {
+    if (pTotal === dTotal) {
+      outcome = 'T';
+    } else if (dTotal > pTotal) {
+      outcome = 'D';
+    } else {
+      outcome = 'P';
+    }
+  })
+  settleBet();
   render();
 };
 
-
-
-// Determine the outcome off of the initial deal
- function getDealOutcome() {
-//   const pTotal = getHandValue(pHand);
-//   const dTotal = getHandValue(pHand);
-//   if (pTotal === 21 && dTotal === 21) return 't';
-//   if (dTotal === 21) return 'dbj';
-//   if (pTotal === 21) return 'pbj';
-   return null;
-}
-
-// Get final outcome of the game
-// function getFinalOutcome() {
-//   const pTotal = getHandValue(phand);
-//   const dTotal = getHandValue(dhand);
-//   if (pTotal > 21) return 'd';
-//   if (dTotal > 21) return 'p';
-//   if (pTotal > dTotal) return 'p';
-//   if (pTotal < dTotal) return 'd';
-//   return 't';
-// }
-
-// Update the total scores
-// function updateTotals() {
-//   dTotalEl.innerText = `Total: ${getHandValue(dHand)}`
-//   pTotalEl.innerText = `Total: ${getHandValue(pHand)}`
-// }
-
-
 function render() {
-  //renderHandInContainer(dHand, dealerHandContainer);
-  //renderHandInContainer(pHand, playerHandContainer);
   renderHands();
   bankrollEl.innerHTML = bankroll;
   betEl.innerHTML = bet;
   renderControls();
   renderBetBtns();
   msgEl.innerHTML = MSG_LOOKUP[outcome];
-  //updateTotals();
 }
 
 function renderBetBtns() {
   betBtns.forEach(function(btn) {
-  const btnAmt = parseInt(btn.innerText.replace('$', ''));
-  btn.disabled = btnAmt > bankroll;
+    const btnAmt = parseInt(btn.innerText.replace('$', ''));
+    btn.disabled = btnAmt > bankroll;
 });
 }
 
 function renderControls() {
   handOverControlsEl.style.visibility = handInPlay() ? 'hidden' : 'visible';
-  handActiveControlsEl.style.visibility = handInPlay()? 'visible' : 'hidden'; 
-  dealBtn.style.visibility = bet >= 10 && !handInPlay()? 'visible' : 'hidden'; 
+  handActiveControlsEl.style.visibility = handInPlay() ? 'visible' : 'hidden'; 
+  dealBtn.style.visibility = bet >= 1 && !handInPlay() ? 'visible' : 'hidden'; 
 }
 
 
-function renderHands(hand, container) {
+function renderHands() {
   pTotalEl.innerHTML = pTotal;
   dTotalEl.innerHTML = outcome ? dTotal : '??';
   pHandEl.innerHTML = pHand.map(card => `<div class="cards ${card.face}"></div>`).join('');
   dHandEl.innerHTML = dHand.map((card,idx) => `<div class+"card ${idx === 1 && !outcome ? 'back' : card.face}></div>`).join('');
 }
+
+
+
+// function renderHandInContainer(deck, container) {
+//   container.innerHTML = '';
+//   // Let's build the cards as a string of HTML
+//   let cardsHtml = '';
+//   deck.forEach(function(card) {
+//     cardsHtml += `<div class="card ${card.face}"></div>`;
+//   });
+//   // Or, use reduce to 'reduce' the array into a single thing - in this case a string of HTML markup 
+//   // const cardsHtml = deck.reduce(function(html, card) {
+//   //   return html + `<div class="card ${card.face}"></div>`;
+//   // }, '');
+//   container.innerHTML = cardsHtml;
+// }
+
 function handInPlay() {
   return pHand.length && !outcome;
 }
@@ -227,11 +227,9 @@ function getNewShuffledDeck() {
   while (tempDeck.length) {
     const rndIdx = Math.floor(Math.random() * tempDeck.length)
     newShuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
-}
+  }
   return newShuffledDeck;
 }
-
-
 
 function buildMainDeck() {
   const deck = [];
