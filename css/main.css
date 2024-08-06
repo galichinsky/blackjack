@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
   border-color: black;
 }
@@ -20,26 +20,26 @@ body {
 
 } */
 
-.parent-container {
-  display: inline-flex;
+/* .parent-container {
+  display: flex;
   justify-content: space-between;
-  
+  flex-direction: column;
   width: 400px;
   padding: 10px;
-}
+} */
 
-.card-container {
+/* .card-container {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   /* flex-wrap: wrap; */
-  border: 1vmin  solid rgba(128, 4, 4, 0.762);
+  /* border: 1vmin  solid rgba(128, 4, 4, 0.762);
   border-radius: 2vmin;
-  padding: 1vmin;
+  padding: 1vmin; */
   /* height: calc(42px + 2vmin + 4vmin); */
   /* width: 10vmin; */
-}
-.hud-container {
+/* } */
+/* .hud-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,28 +48,28 @@ body {
   border-radius: 2vmin;
   padding: 8vmin;
   height: 500px
-}
+} */
 
-#bank {
+/* #bank {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 300px;
-}
+} */
 
 
-#dealer-hand-container.card-container {
+/* #dealer-hand-container.card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
+} */
 
-#player-hand-container {
+/* #player-hand-container {
   display: flex;
 
-}
+} */
 
-button {
+/* button {
   display: block;
   margin: 10px auto;
   padding: 10px;
@@ -78,14 +78,14 @@ button {
   border: 1px solid rgb(9, 6, 6);
   border-radius: 4px;
   outline: none;
-}
+} */
 
-button:hover {
+/* button:hover {
   background-color: grey;
   color: white;
-}
+} */
 
-h2 {
+/* h2 {
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -95,26 +95,78 @@ h2 {
  border-radius: 6vmin;
  border-color: black;
 
+} */
+
+/* h3 {
+  width: 100px;
+} */
+
+/* .dealer {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+} */
+
+/* .player {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+} */
+
+/* .buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+} */ 
+
+html, * {
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
+
+body {
+  height: 100vh;
 }
 
 h3 {
-  width: 100px;
+  text-align: center;
 }
 
-.dealer {
+.flex-ctr {
   display: flex;
-  justify-content: space-between;
-  width: 400px;
+  justify-content: center;
+  align-items: center;
 }
 
-.player {
+.card-container {
   display: flex;
-  justify-content: space-between;
-  width: 400px;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 4px dotted grey;
+  height: 151px;
+  min-width: 156px;
 }
 
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 400px;
+#bet-controls {
+  padding: 5vmin;
+  border: 2px solid grey;
+}
+
+button {
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 16px;
+  color: grey;
+  border: 1px solid grey;
+  border-radius: 4px;
+  outline: none;
+}
+
+button:hover {
+  background-color: grey;
+  color: white;
+}
+
+body > div:first-child {
+  margin-right: 40px;
 }

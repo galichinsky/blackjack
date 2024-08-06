@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -15,7 +15,6 @@
   <h2>Payout <div>3:2</div></h2>
   <button id="deal-btn">Deal</button>
   <div class="parent-container">
-   <div class="gameplay-container">   
       <div class="dealer">
         <h3>Dealer</h3>
         <h3 id="dealer-total">Total:</h3>
@@ -26,20 +25,69 @@
         <h3 id="player-total">Total:</h3>
       </div>
       <section id="player-hand-container" class="card-container"></section>
-      <div class="buttons">
+  </div>
+  <div class="buttons">
         <button id="hit-btn">Hit</button>
         <button id="stand-btn">Stand</button>
+  </div>
+  <div class="Bank">
+    <div>
+      <h1>Bankroll</h1>
+      <div><h3>Bet:</h3></div>
+      <div class="buttons">
+        <button id="chip1">$25</button>
+        <button id="chip2">$50</button>
+        <button id="chip3">$100</button>
       </div>
-    </div>
-    <div class="hud-container">
-      <div id="Bank">
-        <h3>Bankroll</h3>
+      <div class="button">
+        <button id="make-bet">Bet</button>
       </div>
-      <h3>I'm Broke</h3>
-      
-        
-    </div>
+    </h2>
   </div>
 </body>
 
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="css/cardstarter.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <script defer src="js/main.js"></script>
+  </head>
+  <body class="flex-ctr">
+    <div>
+      <h1 id="msg"></h1>
+      <h3>Dealer Hand</h3>
+      <section id="dealer-hand" class="card-container"></section>
+      <div>Dealer Has: <span id="dealer-total"></span></div>
+      <h3>Player Hand</h3>
+      <section id="player-hand" class="card-container"></section>
+      <div>Player Has: <span id="player-total"></span></div>
+    </div>
+    <div>
+      <section>
+        <div>Bet Amount: $<span id="bet"></span></div>
+        <div>Bankroll: $<span id="bankroll"></span></div>
+      </section>
+      <section id="hand-over-controls">
+        <button id="deal-btn">Deal</button>
+        <div id="bet-controls">
+          <h5>Click to Add to Bet</h5>
+          <button>$1</button>
+          <button>$5</button>
+          <button>$25</button>
+          <button>$100</button>
+          <h5>Press Shift While Clicking to Subtract</h5>
+        </div>
+      </section>
+      <section id="hand-active-controls">
+        <button id="stand-btn">Stand</button>
+        <button id="hit-btn">Hit</button>
+      </section>
+    </div>
+  </body>
 </html>
