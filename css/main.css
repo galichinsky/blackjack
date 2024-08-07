@@ -5,7 +5,7 @@
 body {
   height: 100vh;
   font-family: sans-serif;
-  background-image: url("./blackjackbg.jpeg");
+  background-image: url("./blackjackbg.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
