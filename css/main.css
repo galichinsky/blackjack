@@ -5,7 +5,15 @@
 body {
   height: 100vh;
   font-family: sans-serif;
-
+  background-image: url("./BlackjackBG.png");
+  background-size: cover;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .card-container {
@@ -38,6 +46,7 @@ button:hover {
   justify-content: center;
   align-items: center;
   padding: 2vmax;
+
 }
 #bet-controls button {
   margin: 0 1vmax;
@@ -51,28 +60,26 @@ h3 {
   text-align: center;
 }
 
-#dealer-has {
-  padding-left: 25em;
-}
 
-#player-has {
-  padding-left: 25em;
-}
-
-.bank {
-  text-align: center;
-  margin: 2em 30em;
-  border: solid black;
-  width: 25%;
-  padding: 1.5em;
-
-}
+ .bank {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  /* margin: 2em 30em; */
+  border: solid rgba(221, 220, 220, 0.91);
+  background-color: grey;
+  width: 50%;
+  /* padding: 1.5em; */
+  margin-top: 10%;
+} 
 
 
 #hand-active-controls {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2em;
 }
 
 #hand-over-controls {
@@ -80,5 +87,16 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-right: 2em
+  padding-right: 2em;
+  margin-bottom: 2em;
+}
+
+.controls-container  {
+  display: flex;
+  flex-direction: column;
+}
+
+h4 {
+  border-color: black;
+  ;
 }
