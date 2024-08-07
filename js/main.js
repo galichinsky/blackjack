@@ -7,7 +7,7 @@ const MSG_LOOKUP = {
   'P': 'Player Wins!',
   'D': 'Dealer Won',
   'PBJ': 'Player Has Blackjack 🤑',
-  'DBJ': 'Dealer Has BlackJack 🏦'
+  'DBJ': 'House Wins 🏦'
 };
 
 // Build an 'original' deck of 'card' objects used to create shuffled decks
@@ -96,9 +96,9 @@ function handleStand() {
     } else if (pTotal === dTotal) {
       outcome = 'T';
     } else if (pTotal > dTotal) {
-      outcome = 'D';
-    } else {
       outcome = 'P';
+    } else {
+      outcome = 'D';
     }
     settleBet();
     render();
@@ -119,7 +119,7 @@ function handleHit() {
     outcome = 'D';
     settleBet();
   }
-  render();
+render();
 }
 
 // Handle the bet
@@ -156,20 +156,6 @@ function getHandTotal(hand) {
   return total;
 }
 
-  // Handle a stand
-function handleStand() {
-  dealerPlay(function() {
-    if (pTotal === dTotal) {
-      outcome = 'T';
-    } else if (dTotal > pTotal) {
-      outcome = 'D';
-    } else {
-      outcome = 'P';
-    }
-  })
-  settleBet();
-  render();
-};
 
 function render() {
   renderHands();
@@ -197,25 +183,9 @@ function renderControls() {
 function renderHands() {
   pTotalEl.innerHTML = pTotal;
   dTotalEl.innerHTML = outcome ? dTotal : '??';
-  pHandEl.innerHTML = pHand.map(card => `<div class="cards ${card.face}"></div>`).join('');
-  dHandEl.innerHTML = dHand.map((card,idx) => `<div class+"card ${idx === 1 && !outcome ? 'back' : card.face}></div>`).join('');
+  pHandEl.innerHTML = pHand.map(card => `<div class="card ${card.face}"></div>`).join('');
+  dHandEl.innerHTML = dHand.map((card,idx) => `<div class="card ${idx === 1 && !outcome ? 'back' : card.face}"></div>`).join('');
 }
-
-
-
-// function renderHandInContainer(deck, container) {
-//   container.innerHTML = '';
-//   // Let's build the cards as a string of HTML
-//   let cardsHtml = '';
-//   deck.forEach(function(card) {
-//     cardsHtml += `<div class="card ${card.face}"></div>`;
-//   });
-//   // Or, use reduce to 'reduce' the array into a single thing - in this case a string of HTML markup 
-//   // const cardsHtml = deck.reduce(function(html, card) {
-//   //   return html + `<div class="card ${card.face}"></div>`;
-//   // }, '');
-//   container.innerHTML = cardsHtml;
-// }
 
 function handInPlay() {
   return pHand.length && !outcome;
@@ -236,6 +206,7 @@ function buildMainDeck() {
   // Use nested forEach to generate card objects
   suits.forEach(function(suit) {
     ranks.forEach(function(rank) {
+      console.log(`${suit}${rank}`)
       deck.push({
         // The 'face' property maps to the library's CSS classes for cards
         face: `${suit}${rank}`,
