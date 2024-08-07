@@ -5,26 +5,27 @@
 body {
   height: 100vh;
   font-family: sans-serif;
-  
+
 }
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  border: 4px dotted grey;
+  justify-content: center;
+  border: 4px none;
   padding: 10px;
 }
 
 button {
   display: block;
-  margin: 10px auto;
+  margin: 1px 1px ;
   padding: 10px;
   font-size: 16px;
   color: grey;
   border: 1px solid grey;
   border-radius: 4px;
   outline: none;
+  justify-content: center;
 }
 
 button:hover {
@@ -36,9 +37,48 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  width:
+  padding: 2vmax;
+}
+#bet-controls button {
+  margin: 0 1vmax;
 }
 
 h1 {
-  
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+#dealer-has {
+  padding-left: 25em;
+}
+
+#player-has {
+  padding-left: 25em;
+}
+
+.bank {
+  text-align: center;
+  margin: 2em 30em;
+  border: solid black;
+  width: 25%;
+  padding: 1.5em;
+
+}
+
+
+#hand-active-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hand-over-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 2em
 }
