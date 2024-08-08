@@ -1,57 +1,70 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>Blackjack</title>
-    <link href="css/card-library/css/cardstarter.css" rel="stylesheet" type="text/css" />
+    <link
+      href="css/card-library/css/cardstarter.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <link href="css/main.css" rel="stylesheet" />
     <script defer src="js/main.js"></script>
   </head>
   <body class="flex-ctr">
     <div id="instruction-modal" class="modal">
       <div class="modal-content">
-          <h2>Welcome to Blackjack!</h2>
-          <p>The objective of Blackjack is to beat the dealer by getting a hand value closer to 21 without going over.</p>
-          <ul>
-              <li>Click on a the chips to make a bet.</li>
-              <li>Click "Deal" to draw the cards</li>
-              <li>Choose "Hit" to draw another card, or "Stand" to keep your current hand.</li>
-              <li>Try to get as close to 21 as possible without busting!</li>
-              <li>Gambling is a way of buying hope on credit - Please gamble responsably!</li>
-          </ul>
-          <button id="start-game-btn">Start</button>
+        <h2>Welcome to Blackjack!</h2>
+        <p>
+          The objective of Blackjack is to beat the dealer by getting a hand
+          value closer to 21 without going over.
+        </p>
+        <ul>
+          <li>Click on a the chips to make a bet.</li>
+          <li>Click "Deal" to draw the cards</li>
+          <li>
+            Choose "Hit" to draw another card, or "Stand" to keep your current
+            hand.
+          </li>
+          <li>Try to get as close to 21 as possible without busting!</li>
+          <li>
+            Gambling is a way of buying hope on credit - Please gamble
+            responsibly!
+          </li>
+        </ul>
+        <button id="start-game-btn">Start</button>
       </div>
-  </div>
+    </div>
     <div class="main-container">
-    <div>
-      <h1 id="msg"></h1>
-      <h3>Dealer Hand</h3>
-      <section id="dealer-hand" class="card-container"></section>
-      <div id="dealer-has">Dealer Total: <span id="dealer-total"></span></div>
-      <h3>Player Hand</h3>
-      <section id="player-hand" class="card-container"></section>
-      <div id="player-has">Player Total: <span id="player-total"></span></div>
+      <div>
+        <h1 id="msg"></h1>
+        <h3>Dealer Hand</h3>
+        <section id="dealer-hand" class="card-container"></section>
+        <div id="dealer-has">Dealer Total: <span id="dealer-total"></span></div>
+        <h3>Player Hand</h3>
+        <section id="player-hand" class="card-container"></section>
+        <div id="player-has">Player Total: <span id="player-total"></span></div>
+      </div>
+      <div class="controls-container">
+        <section id="hand-active-controls">
+          <button id="stand-btn">Stand</button>
+          <button id="hit-btn">Hit</button>
+        </section>
+        <section class="bank">
+          <div>Bet Amount: $<span id="bet"></span></div>
+          <div>Bankroll: $<span id="bankroll"></span></div>
+        </section>
+        <section id="hand-over-controls">
+          <div id="bet-controls">
+            <button id="1">$1</button>
+            <button id="5">$5</button>
+            <button id="25">$25</button>
+            <button id="100">$100</button>
+          </div>
+          <button id="deal-btn">Deal</button>
+        </section>
+      </div>
     </div>
-    <div class="controls-container">
-      <section id="hand-active-controls">
-        <button id="stand-btn">Stand</button>
-        <button id="hit-btn">Hit</button>
-      </section>
-      <section class="bank">
-        <div>Bet Amount: $<span id="bet"></span></div>
-        <div>Bankroll: $<span id="bankroll"></span></div>
-      </section>
-      <section id="hand-over-controls">
-        <div id="bet-controls">
-          <button id="1">$1</button>
-          <button id="5">$5</button>
-          <button id="25">$25</button>
-          <button id="100">$100</button>
-        </div>
-        <button id="deal-btn">Deal</button>
-      </section>
-    </div>
-  </div>
   </body>
 </html>

@@ -30,6 +30,7 @@ You can play the game here: [blackjack](https://galichinsky.github.io/blackjack/
 - Git
 - Github
 - VS Code
+- Imgur
 
 # Getting Started
 
