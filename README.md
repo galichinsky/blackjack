@@ -34,7 +34,7 @@ You can play the game here: [blackjack](https://galichinsky.github.io/blackjack/
 
 # Getting Started
 
-1. Place a bet by clicking on one of the bet buttons (Chips with $25, $100, and $500).
+1. Place a bet by clicking on one of the bet buttons (Chips with $1, $5, $25 and $100).
 
 2. Click deal to start the game.
 
