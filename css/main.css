@@ -73,21 +73,21 @@ button {
   padding: 20px;
   font-size: 16px;
   color: white;
-  background-color: #3b3b3b; /* Dark gray base color */
-  border: 2px solid #ffffff; /* White border to resemble chip edge */
-  border-radius: 50%; /* Circular shape */
-  width: 80px; /* Diameter of the chip */
-  height: 80px; /* Diameter of the chip */
-  text-align: center; /* Center text within the chip */
-  font-weight: bold; /* Make the text bold */
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3); /* Add some shadow for a 3D effect */
-  cursor: pointer; /* Pointer cursor for button */
-  outline: none; /* Remove outline */
+  background-color: #3b3b3b;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  width: 80px; 
+  height: 80px; 
+  text-align: center; 
+  font-weight: bold; 
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
 }
 
 button:hover {
-  background-color: #2c2c2c; /* Slightly darker on hover */
-  box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.4); /* Enhance shadow on hover */
+  background-color: #2c2c2c;
+  box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.4);
 }
 
 #bet-controls {

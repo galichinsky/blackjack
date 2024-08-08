@@ -1,11 +1,9 @@
-/*----- Intsructions pop-up -----*/
+/*----- Instructions pop-up -----*/
 document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("instruction-modal");
   const startGameBtn = document.getElementById("start-game-btn");
-
   // Show the modal when the page loads
   modal.style.display = "flex";
-
   // Hide the modal when the user clicks "Start Game"
   startGameBtn.addEventListener("click", function () {
     modal.style.display = "none";
@@ -50,9 +48,9 @@ let bankroll;
 let bet;
 let pTotal, dTotal;
 let btn;
-let outcome; // null -> hand in progress; 'P' -> player wins; 'D' -> dealer wins
-// 'DBJ' -> dealer blackjack; 'PBJ' -> player blackjack
-// 'T' -> push for a tie
+let outcome;  // null -> hand in progress; 'P' -> player wins; 'D' -> dealer wins
+              // 'DBJ' -> dealer blackjack; 'PBJ' -> player blackjack
+              // 'T' -> push for a tie
 
 /*----- cached element references -----*/
 const msgEl = document.getElementById("msg");
@@ -66,7 +64,6 @@ const handActiveControlsEl = document.getElementById("hand-active-controls");
 const handOverControlsEl = document.getElementById("hand-over-controls");
 const dealBtn = document.getElementById("deal-btn");
 const betBtns = document.querySelectorAll("#bet-controls > button");
-//const standBtn = document.getElementById('stand-btn');
 
 /*----- event listeners -----*/
 
@@ -75,7 +72,6 @@ document.getElementById("hit-btn").addEventListener("click", handleHit);
 document.getElementById("stand-btn").addEventListener("click", handleStand);
 document.getElementById("bet-controls").addEventListener("click", handleBet);
 
-//standBtn.addEventListener('click', handleStand);
 /*----- functions -----*/
 init();
 
@@ -103,14 +99,13 @@ function handleDeal() {
   // check for BJ
   if (pTotal === 21 && dTotal === 21) {
     outcome = "T";
-    // } else if (dTotal === 21) {
-    //     outcome = 'DBJ';
   } else if (pTotal === 21) {
     outcome = "PBJ";
   }
   if (outcome) settleBet();
   render();
 }
+
 // Handle Stand
 function handleStand() {
   dealerPlay();
