@@ -24,7 +24,7 @@ height="750px" width="950px">
 
 ## Live Demo
 
-You can play the game here: [blackjack](https://galichinsky.github.io/blackjack/)
+You can play the game here: [Blackjack by Gregg](https://galichinsky.github.io/blackjack/)
 
 # Technologies Used
 
