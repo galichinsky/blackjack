@@ -8,8 +8,6 @@ body {
   background-image: url("./blackjackbg2.png");
   background-size: cover;
   background-repeat: no-repeat;
-  /* min-height: 100vh; */
-  
 }
 
 .modal {
@@ -42,7 +40,7 @@ body {
   color: white;
   background-color: #0f9806;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   margin: 0 auto;
 }
