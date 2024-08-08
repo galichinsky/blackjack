@@ -8,6 +8,7 @@ body {
   background-image: url("./blackjackbg6.png");
   background-size: cover;
   background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 .modal {
