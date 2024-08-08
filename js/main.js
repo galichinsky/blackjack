@@ -71,7 +71,7 @@ function init() {
     pHand = [];
     dHand = [];
     pTotal = dTotal = 0;
-    bankroll = 200;
+    bankroll = 1000;
     bet = 0;
     render();
 }
