@@ -10,9 +10,10 @@
   width: 9em;
   height: 12.0em;
   /* Add a default background color and border. */
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 0.20em;
-  border: 1px solid #c3c3c3;
+  border: 1px solid hsl(0, 0%, 0%);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, .6);
   /* Scale and set the background settings. */
   background-repeat: no-repeat;
   background-position: center center;

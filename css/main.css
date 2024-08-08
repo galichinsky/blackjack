@@ -38,7 +38,7 @@ body {
   padding: 10px 20px;
   font-size: 16px;
   color: white;
-  background-color: #4CAF50;
+  background-color: #0f9806;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -60,7 +60,7 @@ button:hover {
 
 .card-container {
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   justify-content: center;
   border: 4px none;
   padding: 2%;
@@ -68,15 +68,6 @@ button:hover {
 }
 
 button {
-  /* display: block;
-  margin: 1px 1px ;
-  padding: 10px;
-  font-size: 16px;
-  color: grey;
-  border: 1px solid grey;
-  border-radius: 4px;
-  outline: none;
-  justify-content: center; */
   display: block;
   margin: 1px 1px;
   padding: 20px;
@@ -114,10 +105,12 @@ button:hover {
 
 h1 {
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 h3 {
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -134,6 +127,7 @@ h3 {
   /* margin-top: 10%; */
   color: grey;
   border-radius: 10px;
+  box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.4);
 } 
 
 
@@ -160,18 +154,26 @@ h4 {
   border-color: rgb(0, 0, 0);
 }
 
-#dealer-hand-container {
-  /* border: 2px solid black; /* Added solid black border */
-  padding: 10px; /* Optional: add padding for spacing inside the border */
-  margin: 10px; /* Optional: add margin for spacing outside the border */
-  box-shadow: #2c2c2c; 
+#dealer-hand.card-container {
+  border: 2px solid black; 
+  padding: 10px; 
+  margin: 10px; 
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+#player-hand.card-container {
+  border: 2px solid black; 
+  padding: 10px; 
+  margin: 10px; 
+  box-shadow:0px 5px 10px rgba(0, 0, 0, 0.4);
   
 }
 
 #dealer-has {
   margin-top: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 #player-has {
   margin-top: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
