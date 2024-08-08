@@ -3,12 +3,13 @@
 }
 
 body {
-  height: 100vh;
+  height: 100%;
   font-family: sans-serif;
   background-image: url("./blackjackbg6.png");
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  
 }
 
 .modal {
