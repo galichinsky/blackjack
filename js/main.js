@@ -2,14 +2,27 @@
 document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("instruction-modal");
   const startGameBtn = document.getElementById("start-game-btn");
-  // Show the modal when the page loads
   modal.style.display = "flex";
-  // Hide the modal when the user clicks "Start Game"
   startGameBtn.addEventListener("click", function () {
     modal.style.display = "none";
-    // Initialize the game or enable game controls here
   });
 });
+
+/*----- Sounds -----*/
+const clickSound = new Audio('sounds/click.mp3');
+clickSound.volume = 0.1;
+
+function playSound(sound) {
+  sound.currentTime = 0; 
+  sound.play();
+}
+
+document.querySelectorAll('button').forEach(button => {
+  button.addEventListener('click', function() {
+    playSound(clickSound);
+  });
+});
+
 
 /*----- constants -----*/
 const suits = ["s", "c", "d", "h"];
