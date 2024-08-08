@@ -34,13 +34,13 @@ You can play the game here: [blackjack](https://galichinsky.github.io/blackjack/
 
 # Getting Started
 
-1. Place a bet by clicking on one of the bet buttons (Chips with $1, $5, $25 and $100).
+1. Read the instructions on how to play the game.
 
-2. Click deal to start the game.
+2. Place a bet by clicking on one of the bet buttons (Chips with $1, $5, $25 and $100).
 
-3. Choose whether to hit (add a card to your hand) or stand (skip your turn).
+3. Click deal to start the game.
 
-4. Check the "How to Win" section for instructions on winning the game.
+4. Choose whether to hit (add a card to your hand) or stand (skip your turn).
 
 # Next Steps
 
