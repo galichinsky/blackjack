@@ -9,6 +9,20 @@
     <script defer src="js/main.js"></script>
   </head>
   <body class="flex-ctr">
+    <div id="instruction-modal" class="modal">
+      <div class="modal-content">
+          <h2>Welcome to Blackjack!</h2>
+          <p>The objective of Blackjack is to beat the dealer by getting a hand value closer to 21 without going over.</p>
+          <ul>
+              <li>Click on a the chips to make a bet.</li>
+              <li>Click "Deal" to draw the cards</li>
+              <li>Choose "Hit" to draw another card, or "Stand" to keep your current hand.</li>
+              <li>Try to get as close to 21 as possible without busting!</li>
+              <li>Gambling is a way of buying hope on credit - Please gamble responsably!</li>
+          </ul>
+          <button id="start-game-btn">Start</button>
+      </div>
+  </div>
     <div class="main-container">
     <div>
       <h1 id="msg"></h1>
@@ -31,10 +45,10 @@
       <section id="hand-over-controls">
         <div id="bet-controls">
           <h4>Click to Add to Bet</h4>
-          <button>$1</button>
-          <button>$5</button>
-          <button>$25</button>
-          <button>$100</button>
+          <button id="1">$1</button>
+          <button id="5">$5</button>
+          <button id="25">$25</button>
+          <button id="100">$100</button>
         </div>
         <button id="deal-btn">Deal</button>
       </section>

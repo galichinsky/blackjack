@@ -1,3 +1,18 @@
+/*----- Intsructions pop-up -----*/
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('instruction-modal');
+  const startGameBtn = document.getElementById('start-game-btn');
+
+  // Show the modal when the page loads
+  modal.style.display = 'flex';
+
+  // Hide the modal when the user clicks "Start Game"
+  startGameBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+    // Initialize the game or enable game controls here
+  });
+});
+
 /*----- constants -----*/
 const suits = ['s', 'c', 'd', 'h'];
 const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
@@ -137,6 +152,8 @@ function settleBet() {
     bankroll += bet + (bet * 2);
   } else if (outcome === 'P') {
     bankroll += bet * 1.5;
+  } else if (outcome === 'T') {
+    bankroll += bet;
   }
   bet = 0;
 }
