@@ -2,9 +2,13 @@
 
 The objective of Blackjack, also known as Twenty-One, is to beat the dealer by getting a hand value closer to 21 than the dealer's hand, without going over 21. 
 
-# Screenshot
+# Screenshots
 
-<img src="https://i.imgur.com/gvHpB6V.png" alt="Blackjack hand in play" height="750px" width="950px">
+<img src="https://i.imgur.com/oYjzfBw.png" alt="Blackjack how to play instructions" 
+height="550px" width="950px">
+
+<img src="https://i.imgur.com/fX8OPWW.png" alt="Blackjack how to play instructions" 
+height="750px" width="950px">
 
 # How to Win
 
@@ -46,6 +50,7 @@ You can play the game here: [blackjack](https://galichinsky.github.io/blackjack/
 
 # Next Steps
 
+- Increase functionality for different platforms
 - Add delay to the cards being delt.
 - Create a flipping animation to flip the dealers face down card.
 - Add a doubling feature to double a bet after the first initial deal.
