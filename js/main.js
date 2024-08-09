@@ -23,7 +23,6 @@ document.querySelectorAll('button').forEach(button => {
   });
 });
 
-
 /*----- constants -----*/
 const suits = ["s", "c", "d", "h"];
 const ranks = [
@@ -50,7 +49,6 @@ const MSG_LOOKUP = {
   DBJ: "House Has Blackjack 🏦",
 };
 
-// Build an 'original' deck of 'card' objects used to create shuffled decks
 const mainDeck = buildMainDeck();
 
 /*----- app's state (variables) -----*/
@@ -105,8 +103,8 @@ function handleDeal() {
   deck = getNewShuffledDeck();
   dHand = [];
   pHand = [];
-  dHand.push(deck.pop(), deck.pop()); // Deal two cards to dealer
-  pHand.push(deck.pop(), deck.pop()); // Deal two cards to player
+  dHand.push(deck.pop(), deck.pop()); 
+  pHand.push(deck.pop(), deck.pop()); 
   dTotal = getHandTotal(dHand);
   pTotal = getHandTotal(pHand);
   // check for BJ
@@ -247,13 +245,10 @@ function getNewShuffledDeck() {
 
 function buildMainDeck() {
   const deck = [];
-  // Use nested forEach to generate card objects
   suits.forEach(function (suit) {
     ranks.forEach(function (rank) {
       deck.push({
-        // The 'face' property maps to the library's CSS classes for cards
         face: `${suit}${rank}`,
-        // Setting the 'value' property for game of blackjack, not war
         value: Number(rank) || (rank === "A" ? 11 : 10),
       });
     });
